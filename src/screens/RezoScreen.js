@@ -226,7 +226,7 @@ export default function RezoScreen({ navigation, route }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: { flex: 1, maxHeight: '100vh' },
 
   topBar: {
     flexDirection: 'row',
@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
   },
 
-  oracionScroll: { flex: 1 },
+  oracionScroll: { flex: 1, minHeight: 0 },
   oracionContent: {
     paddingHorizontal: SPACING.lg,
     paddingVertical: SPACING.xl,
