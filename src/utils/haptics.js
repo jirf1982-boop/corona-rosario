@@ -1,6 +1,8 @@
-import * as Haptics from 'expo-haptics';
+import { Platform } from 'react-native';
 
 export function lightImpact() {
-  if (typeof window !== 'undefined' && !window.ReactNativeWebView) return;
-  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => {});
+  if (Platform.OS !== 'ios' && Platform.OS !== 'android') return;
+  import('expo-haptics').then(Haptics => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => {});
+  }).catch(() => {});
 }
