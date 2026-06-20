@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: 72,
+    cursor: 'pointer',
     ...SHADOW.gold,
   },
   buttonSecondary: {
