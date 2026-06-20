@@ -9,7 +9,7 @@ import ProgressBar from '../components/ProgressBar';
 import GoldButton from '../components/GoldButton';
 import { buildRosarioSteps } from '../data/rosario';
 import { useSpeech } from '../hooks/useSpeech';
-import * as Haptics from 'expo-haptics';
+import { lightImpact } from '../utils/haptics';
 
 export default function RezoScreen({ navigation, route }) {
   const { mode, rol = 'solo', misterio } = route.params;
@@ -47,7 +47,7 @@ export default function RezoScreen({ navigation, route }) {
 
   const siguiente = useCallback(() => {
     if (stepIdx < steps.length - 1) {
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      lightImpact();
       setStepIdx((i) => i + 1);
     }
   }, [stepIdx, steps.length]);

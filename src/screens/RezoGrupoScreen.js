@@ -14,7 +14,7 @@ import MisterioAnuncioGrupo from '../components/MisterioAnuncioGrupo';
 import { buildRosarioSteps } from '../data/rosario';
 import { getConfigGrupo, PARTICIPACION } from '../constants/grupoLogic';
 import { useSpeech } from '../hooks/useSpeech';
-import * as Haptics from 'expo-haptics';
+import { lightImpact } from '../utils/haptics';
 
 export default function RezoGrupoScreen({ navigation, route }) {
   const { misterio, rol = 'lider', _initialStep = 0 } = route.params;
@@ -39,7 +39,7 @@ export default function RezoGrupoScreen({ navigation, route }) {
 
   const siguiente = useCallback(() => {
     if (stepIdx >= steps.length - 1) return;
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    lightImpact();
     Animated.sequence([
       Animated.timing(fadeAnim, { toValue: 0, duration: 180, useNativeDriver: true }),
       Animated.timing(fadeAnim, { toValue: 1, duration: 280, useNativeDriver: true }),
