@@ -1,29 +1,28 @@
 import { useEffect, useRef } from 'react';
-import * as Speech from 'expo-speech';
+import { Platform } from 'react-native';
 
-// Speaks `text` in Spanish whenever `enabled` is true and `text` changes.
-// Stops speech on disable or unmount.
 export function useSpeech(text, enabled) {
   const lastText = useRef(null);
 
   useEffect(() => {
-    if (!enabled || !text) {
-      Speech.stop();
-      return;
-    }
-    // Avoid re-speaking the same text (e.g. re-renders without step change)
-    if (text === lastText.current) return;
-    lastText.current = text;
-
-    Speech.stop();
-    Speech.speak(text, {
-      language: 'es-MX',
-      pitch: 1.0,
-      rate: 0.88,
-    });
+    if (Platform.OS === 'web') return;
+    const run = async () => {
+      try {
+        const Speech = await import('expo-speech');
+        if (!enabled || !text) { Speech.stop(); return; }
+        if (text === lastText.current) return;
+        lastText.current = text;
+        Speech.stop();
+        Speech.speak(text, { language: 'es-MX', pitch: 1.0, rate: 0.88 });
+      } catch (_) {}
+    };
+    run();
   }, [text, enabled]);
 
   useEffect(() => {
-    return () => Speech.stop();
+    return () => {
+      if (Platform.OS === 'web') return;
+      import('expo-speech').then(S => S.stop()).catch(() => {});
+    };
   }, []);
 }
