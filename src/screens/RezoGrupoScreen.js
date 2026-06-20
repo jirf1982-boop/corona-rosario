@@ -41,8 +41,8 @@ export default function RezoGrupoScreen({ navigation, route }) {
     if (stepIdx >= steps.length - 1) return;
     lightImpact();
     Animated.sequence([
-      Animated.timing(fadeAnim, { toValue: 0, duration: 180, useNativeDriver: true }),
-      Animated.timing(fadeAnim, { toValue: 1, duration: 280, useNativeDriver: true }),
+      Animated.timing(fadeAnim, { toValue: 0, duration: 180, useNativeDriver: false }),
+      Animated.timing(fadeAnim, { toValue: 1, duration: 280, useNativeDriver: false }),
     ]).start();
     setStepIdx((i) => i + 1);
   }, [stepIdx, steps.length, fadeAnim]);

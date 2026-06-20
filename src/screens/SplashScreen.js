@@ -13,13 +13,13 @@ export default function SplashScreen({ navigation }) {
   useEffect(() => {
     Animated.sequence([
       Animated.parallel([
-        Animated.timing(logoOpacity, { toValue: 1, duration: 900, useNativeDriver: true }),
-        Animated.timing(particle1, { toValue: 1, duration: 1200, useNativeDriver: true }),
+        Animated.timing(logoOpacity, { toValue: 1, duration: 900, useNativeDriver: false }),
+        Animated.timing(particle1, { toValue: 1, duration: 1200, useNativeDriver: false }),
       ]),
-      Animated.timing(tagOpacity, { toValue: 1, duration: 600, useNativeDriver: true }),
+      Animated.timing(tagOpacity, { toValue: 1, duration: 600, useNativeDriver: false }),
       Animated.parallel([
-        Animated.timing(particle2, { toValue: 1, duration: 800, useNativeDriver: true }),
-        Animated.timing(particle3, { toValue: 1, duration: 800, useNativeDriver: true }),
+        Animated.timing(particle2, { toValue: 1, duration: 800, useNativeDriver: false }),
+        Animated.timing(particle3, { toValue: 1, duration: 800, useNativeDriver: false }),
       ]),
     ]).start();
 

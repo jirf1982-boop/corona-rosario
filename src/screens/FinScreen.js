@@ -14,9 +14,9 @@ export default function FinScreen({ navigation }) {
   useEffect(() => {
     registrarRosario();
     Animated.sequence([
-      Animated.spring(checkScale, { toValue: 1, useNativeDriver: true, tension: 60, friction: 7 }),
-      Animated.timing(contentOpacity, { toValue: 1, duration: 600, useNativeDriver: true }),
-      Animated.timing(statsOpacity, { toValue: 1, duration: 500, useNativeDriver: true }),
+      Animated.spring(checkScale, { toValue: 1, useNativeDriver: false, tension: 60, friction: 7 }),
+      Animated.timing(contentOpacity, { toValue: 1, duration: 600, useNativeDriver: false }),
+      Animated.timing(statsOpacity, { toValue: 1, duration: 500, useNativeDriver: false }),
     ]).start();
   }, []);
 

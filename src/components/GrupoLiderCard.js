@@ -7,7 +7,7 @@ export default function GrupoLiderCard({ textoLider, textoGrupo, etiquetaLider, 
 
   useEffect(() => {
     fadeAnim.setValue(0);
-    Animated.timing(fadeAnim, { toValue: 1, duration: 400, useNativeDriver: true }).start();
+    Animated.timing(fadeAnim, { toValue: 1, duration: 400, useNativeDriver: false }).start();
   }, [textoLider]);
 
   if (esLider) {

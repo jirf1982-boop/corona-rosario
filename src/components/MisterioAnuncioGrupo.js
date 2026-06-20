@@ -12,8 +12,8 @@ export default function MisterioAnuncioGrupo({ step, esLider, onContinuar, topBa
 
   useEffect(() => {
     Animated.parallel([
-      Animated.timing(fadeIn, { toValue: 1, duration: 600, useNativeDriver: true }),
-      Animated.spring(slideUp, { toValue: 0, useNativeDriver: true, tension: 50, friction: 8 }),
+      Animated.timing(fadeIn, { toValue: 1, duration: 600, useNativeDriver: false }),
+      Animated.spring(slideUp, { toValue: 0, useNativeDriver: false, tension: 50, friction: 8 }),
     ]).start();
   }, [step.numero]);
 

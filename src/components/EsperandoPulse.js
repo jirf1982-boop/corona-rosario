@@ -8,8 +8,8 @@ export default function EsperandoPulse() {
   useEffect(() => {
     Animated.loop(
       Animated.sequence([
-        Animated.timing(pulse, { toValue: 0.4, duration: 900, useNativeDriver: true }),
-        Animated.timing(pulse, { toValue: 1, duration: 900, useNativeDriver: true }),
+        Animated.timing(pulse, { toValue: 0.4, duration: 900, useNativeDriver: false }),
+        Animated.timing(pulse, { toValue: 1, duration: 900, useNativeDriver: false }),
       ])
     ).start();
     return () => pulse.stopAnimation();
